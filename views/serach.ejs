@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>가게  테스트</title>
+	</head>
+<body>
+	<h1>가게 </h1>
+	<br>
+	<h3>http://mygeoposition.com/에서 좌표를 확인하여 추가합니다.</h3>
+	<br>
+	<br>
+	<form method="post" action="/process/Mapadd" >
+		<table>
+			<tr>
+				<td><label>사용자 이름</label></td>
+				<td><input type="text" name="name" value=<%= user.name %> /></td>
+			</tr>
+			<tr>
+				<td><label>검색할 이름을 입력해주세요.</label></td>
+				<td><input type="text" name="address" value="서울특별시 강남구 테헤란로103길 9 제일빌딩" /></td>
+			</tr>
+			
+		</table>
+		<input type="submit" value="전송" name="" />
+	</form>
+</body>
+</html>
