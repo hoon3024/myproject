@@ -37,7 +37,9 @@
 						<li class="nav-item">
 						  <a class="nav-link" href="/profile">Profile</a>
 						</li>
+						
 					  </ul>
+					  
 					</div>
 				  </nav>
 		<div class="container">
@@ -56,20 +58,25 @@
 
 							<h2> 반갑습니다. <%= user.name %> 님 </h2>
 							<% } %>
-					<form class="col-12">
+					<form class="col-sm6 center">
 						<% if(!logged) { %>
-						<a href="/login" class="btn btn-default"><i class="fa fa-user"></i> 로그인</a>
-						<a href="/signup" class="btn btn-default"><i class="fa fa-user"></i> 회원가입</a>
+						<a href="/login" class="button2"><i class="fa fa-user"></i> 로그인</a>
+						
 						<% } %>
 						<% if(logged) { %>
-						<a href="/logout" class="btn btn-default"><i class="fa fa-user"></i> 로그아웃</a>
+						<a href="/logout" class="button2"><i class="fa fa-user"></i> 로그아웃</a>
 						<% } %>
-						<a href="/serach" class="btn btn-default"><i class="fa fa-user"></i> 위치검색</a>
+						<a href="/serach" class="button2"><i class="fa fa-user"></i> 위치검색</a>
 			
 			        
 				</form>
 				<br>
-				<p>계정이 없으세요?<div class="col-12 signbtn"><a href="/signup">회원가입하기</a></div> </p> 
+				<p>계정이 없으세요?</p>
+				<div col-sm6 center>
+				<a href="/signup" class="btn">
+					<i class="fas fa-user-plus"></i><h7>회원가입</h7>
+				  </a> 
+				</div>
 			    
 				</form>
 			    <hr>

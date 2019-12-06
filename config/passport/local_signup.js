@@ -6,7 +6,7 @@ module.exports = new LocalStrategy({
 		passwordField : 'password',
 		passReqToCallback : true    // 이 옵션을 설정하면 아래 콜백 함수의 첫번째 파라미터로 req 객체 전달됨
 	}, function(req, email, password, done) {
-        // 요청 파라미터 중 name 파라미터 확인
+       
         var paramName = req.body.name || req.query.name;
 	 
 		console.log('passport의 local-signup 호출됨 : ' + email + ', ' + password + ', ' + paramName);
@@ -23,7 +23,7 @@ module.exports = new LocalStrategy({
 		        // 기존에 사용자 정보가 있는 경우
 		        if (user) {
 		        	console.log('기존에 계정이 있음.');
-		            return done(null, false, req.flash('signupMessage', '계정이 이미 있습니다.'));  // 검증 콜백에서 두 번째 파라미터의 값을 false로 하여 인증 실패한 것으로 처리
+		            return done(null, false, req.flash('signupMessage', '계정이 이미 있습니다.'));  
 		        } else {
 		        	// 모델 인스턴스 객체 만들어 저장
 		        	var user = new database.UserModel({'email':email, 'password':password, 'name':paramName});
@@ -33,7 +33,7 @@ module.exports = new LocalStrategy({
 		        		}
 		        		
 		        	    console.log("사용자 데이터 추가함.");
-		        	    return done(null, user);  // 검증 콜백에서 두 번째 파라미터의 값을 user 객체로 넣어 인증 성공한 것으로 처리
+		        	    return done(null, user); 
 		        	});
 		        }
 		    });    

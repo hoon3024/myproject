@@ -16,14 +16,13 @@ module.exports = function(router, passport) {
         } else {
             
             console.log('사용자 인증된 상태임.');
-            console.log('/profile 패스 요청됨.');
+            console.log('/ 패스 요청됨.');
             console.dir(req.user);
 
-            if (Array.isArray(req.user)) {
-                res.render('index.ejs', {user: req.user[0]._doc});
-            } else {
-                res.render('index.ejs', {user: req.user});
-            }
+           
+             
+           res.render('index.ejs', {logged: true, user: req.user});
+            
         }
     });
     
@@ -127,14 +126,14 @@ module.exports = function(router, passport) {
 
     // 로그인 인증
     router.route('/login').post(passport.authenticate('local-login', {
-        successRedirect : '/profile', 
+        successRedirect : '/', 
         failureRedirect : '/login', 
         failureFlash : true 
     }));
 
     // 회원가입 인증
     router.route('/signup').post(passport.authenticate('local-signup', {
-        successRedirect : '/profile', 
+        successRedirect : '/', 
         failureRedirect : '/signup', 
         failureFlash : true 
     }));

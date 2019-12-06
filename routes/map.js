@@ -15,28 +15,21 @@ var Mapadd = function(req, res) {
 		addMap(database, Name, Address, function(err, result) {
 			if (err) {
                 console.error('맵데이터 추가 중 에러 발생 : ' + err.stack);
-                
-                
-                
+              
                 return;
             }
-			
 			if (result) {
 				console.dir(result);
 				console.log("/kakao.ejs 실행중");
-				
-
- 				res.render('kakao.ejs', {Name:Name , Address: Address});
-				 
-				
-				
+			res.render('kakao.ejs', {Name:Name , Address: Address});
+			
+			
 			} else{
 				console.log("잘못된 접근");
 				res.render('login.ejs');
 			}
 				
-			
-		});
+			});
 	} else {
 		
 	}

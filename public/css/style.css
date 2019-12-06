@@ -9,9 +9,15 @@ h1, p, a { font-family: 'Nanum Gothic' }
 }
 body {
     font-family: 'Roboto', sans-serif;
-    background-color:  #fff; 
+    background-color: #f8f9fa;
     background-size: cover;
     
+    
+}
+a { text-decoration:none
+ }
+.login {
+    font-size: medium;
 }
 .main-section{
     margin: 0 auto;
@@ -48,9 +54,75 @@ label{
     color: #f8f9fa;
     border-radius: 5px;
 }
+
 .signbtn{
     padding:0px 0 5px;
 }
 .signbtn a{
     color : #e4989f;
 }
+.btn-primary {
+    color: #fff;
+    
+    border-color: #f8f9fa;
+}
+.wrap {
+	
+	top: 50%;
+	left: 50%;
+	margin-top: -86px;
+	margin-left: -89px;
+	text-align: center;
+}
+
+
+
+.button {
+	color: rgba(30, 22, 54, 0.6);
+	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+.button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+.button2{
+    background:#e4989f;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 12px;
+    font-size: 26px;
+  }
+  .button2:hover{
+    background:#fff;
+    color:#e4989f;
+  }
+  .button2:before,.button2:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #e4989f;
+    transition:400ms ease all;
+  }
+  .button2:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .button2:hover:before,.button2:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }    
+
