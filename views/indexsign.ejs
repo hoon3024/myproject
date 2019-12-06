@@ -22,7 +22,7 @@
 				  
 					
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-					  <span class="navbar-toggler-icon"></span>
+					  <i class="navbar-toggler-icon"></i>
 					</button>
 				  
 				   
@@ -47,35 +47,20 @@
 					<div class="col-12 user-img">
 							<img src="/public/css/img/cat.jpg">
 						</div>
-						<h1><i class="fas fa-clipboard-check"></i> 로그인</h1>
-			    <!-- 인증 처리 후 메시지가 있으면 메시지 표시 -->
-			    <% if (message.length > 0) { %>
-			        <div class="alert alert-danger"><%= message %></div>
-			    <% } %>
-			
-				
-				<form action="/login" method="post" >
+						<h1><i class="fas fa-paw"></i>위치검색도움사이트</h1>
+						<strong>별명</strong>: <%= user.name %>
 					<form class="col-12">
-			        <div class="form-group">
-			            <label>이메일</label>
-			            <input type="text" class="form-control" name="email" placeholder="Email">
-			        </div>
-			        <div class="form-group">
-			            <label>비밀번호</label>
-			            <input type="password" class="form-control" name="password" placeholder="password">
-			        </div>
+						
+						<a href="/logout" class="btn btn-default"><i class="fa fa-user"></i> 로그아웃</a>
+						<a href="/serach" class="btn btn-default"><i class="fa fa-user"></i> 위치검색</a>
 			
-			        <button type="submit" class="btn"><i clss="fas fa-sign-in-alt"></i>로그인</button>
+			        
 				</form>
 				<br>
 				<p>계정이 없으세요?<div class="col-12 signbtn"><a href="/signup">회원가입하기</a></div> </p> 
-			    <div class="col-12 signbtn"><a href="/">홈으로</a></div>
+			    
 				</form>
-
 			    <hr>
-				
-			   
-
 			</div>
 		</div>
 		</div>
@@ -88,7 +73,3 @@
 	  
 		  </footer>	
 </html>
-			
-			
-				
-	

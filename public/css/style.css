@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+h1, p, a { font-family: 'Nanum Gothic' }
+.bg-dark {
+    background-color: #a835dc40!important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #495057;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color:  #fff; 
+    background-size: cover;
+    
+}
+.main-section{
+    margin: 0 auto;
+    margin-top: 130px;
+    padding: 0;
+    
+}
+.modal-content {
+    background-color: #fff;
+    opacity: .95;
+    padding: 0 18px;
+    box-shadow: 0 0 0px 2px #e4989f;
+    
+}
+.user-img{
+    margin-top: -50px;
+    margin-bottom: 35px;
+    border-radius: 5px;
+   
+    
+}
+.form-group {
+    margin-bottom: 25px;
+}
+label{
+    display: block; width: x; height:y; text-align: left;
+    margin: auto;
+    
+    
+}
+.btn {
+  
+    background-color: #e4989f;
+    color: #f8f9fa;
+    border-radius: 5px;
+}
+.signbtn{
+    padding:0px 0 5px;
+}
+.signbtn a{
+    color : #e4989f;
+}

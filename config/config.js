@@ -5,7 +5,7 @@
 
 module.exports = {
 	server_port: 3000,
-	db_url: 'mongodb://localhost:27017/local',
+	db_url: 'mongodb://user:3024@cluster0-shard-00-00-koakh.mongodb.net:27017,cluster0-shard-00-01-koakh.mongodb.net:27017,cluster0-shard-00-02-koakh.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
 	db_schemas: [
 	    {file:'./user_schema', collection:'users7', schemaName:'UserSchema', modelName:'UserModel'},
 		
