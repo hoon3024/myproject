@@ -1,98 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-        <meta charset="UTF-8">
+	<head>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		
-		<title>검색화면</title>
+		<title>Map view</title>
 		
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+		<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+		<link rel="stylesheet" type="text/css" href="/public/css/style.css">
     	
-    	<style>
-        	body        { padding-top:80px; }
-    	</style>
+	</head>
+	<body>
+			<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+					<!-- Brand -->
+					<a class="navbar-brand" href="#">Changhoon.site</a>
+				  
+					
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+				  
+				   
+					<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					  <ul class="navbar-nav">
+						<li class="nav-item">
+						  <a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="/login">Login</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="/profile">Profile</a>
+						</li>
+					  </ul>
+					</div>
+				  </nav>
+		<div class="container">
+			<div class="modal-dialog modal-lg text-center">
+			<div class="col-sm-8 main-section">
+          <strong>검색한 키워드 : <%= Address %>
+			<div class="modal-content center">
+          
+          </strong>
+                    <div id="map" style="width:100%;height:350px;"></div>
+
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4bcd5e8638bf6354608fc2d37e582155&libraries=services"></script>
+                    <script>
+                    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+                    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+                    
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                        mapOption = {
+                            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+                            level: 3 // 지도의 확대 레벨
+                        };  
+                    
+                    // 지도를 생성합니다    
+                    var map = new kakao.maps.Map(mapContainer, mapOption); 
+                    
+                    // 장소 검색 객체를 생성합니다
+                    var ps = new kakao.maps.services.Places(); 
+                    
+                    // 키워드로 장소를 검색합니다
+                    ps.keywordSearch('<%= Address %>', placesSearchCB); 
+                    
+                    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+                    function placesSearchCB (data, status, pagination) {
+                        if (status === kakao.maps.services.Status.OK) {
+                    
+                            // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+                            // LatLngBounds 객체에 좌표를 추가합니다
+                            var bounds = new kakao.maps.LatLngBounds();
+                    
+                            for (var i=0; i<data.length; i++) {
+                                displayMarker(data[i]);    
+                                bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                            }       
+                    
+                            // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                            map.setBounds(bounds);
+                        } 
+                    }
+                    
+                    // 지도에 마커를 표시하는 함수입니다
+                    function displayMarker(place) {
+                        
+                        // 마커를 생성하고 지도에 표시합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: new kakao.maps.LatLng(place.y, place.x) 
+                        });
+                    
+                        // 마커에 클릭이벤트를 등록합니다
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+                            infowindow.open(map, marker);
+                        });
+                    }
+                    </script>
+        <div class="col-12 center   signbtn"><a href="javascript:history.back();">다시 검색</a></div>
+                    
+      </div>
+      
+		</div>
+		</div>
+		</div>
     
-</head>
+	</body>
+	<footer class="bg-dark mt-4 p-5 text-center" style="color:#ffff;">
 
-
-
-<body>
-    <div class="container">			
-						
-        <div class="page-header text-center">
-            <h3><span class="fa fa-book"></span> 위치 검색</h3>
-                <a href="/logout" class="btn btn-default btn-sm">로그아웃</a>
-                </div>
-        <br>
-		<div class="container-fluid">
-		    <div class="row-fluid">
-		        <div class="span5">
-		                
-		<br>
-			<p>
-		    <strong>사용자 정보 </strong>: <%= Name %>
-		    <br>
-		    <strong>검색한 키워드</strong>: <%= Address %>
-		    </p>		
-		    </div>
-
-<div id="map" style="width:100%;height:350px;"></div>
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4bcd5e8638bf6354608fc2d37e582155&libraries=services"></script>
-<script>
-// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };  
-
-// 지도를 생성합니다    
-var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-// 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places(); 
-
-// 키워드로 장소를 검색합니다
-ps.keywordSearch('<%= Address %>', placesSearchCB); 
-
-// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-function placesSearchCB (data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
-
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
-        var bounds = new kakao.maps.LatLngBounds();
-
-        for (var i=0; i<data.length; i++) {
-            displayMarker(data[i]);    
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-        }       
-
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-        map.setBounds(bounds);
-    } 
-}
-
-// 지도에 마커를 표시하는 함수입니다
-function displayMarker(place) {
-    
-    // 마커를 생성하고 지도에 표시합니다
-    var marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x) 
-    });
-
-    // 마커에 클릭이벤트를 등록합니다
-    kakao.maps.event.addListener(marker, 'click', function() {
-        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-        infowindow.open(map, marker);
-    });
-}
-</script>
-</body>
+			Copyright ⓒ 2019 이창훈 All Rights Reserved.
+	  
+		  </footer>	
 </html>
