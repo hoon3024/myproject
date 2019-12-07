@@ -1,7 +1,7 @@
 var local_login = require('./passport/local_login');
 var local_signup = require('./passport/local_signup');
 var facebook = require('./passport/facebook');
-
+var kakao = require('./passport/kakao');
 
 //모듈
 module.exports = function (app, passport) { 
@@ -26,6 +26,8 @@ passport.deserializeUser(function(user, done){
 passport.use('local-login', local_login);
 passport.use('local-signup', local_signup);
 passport.use('facebook', facebook(app, passport));
-
+passport.use('kakao', kakao(app, passport));
 
 };
+
+//kakao

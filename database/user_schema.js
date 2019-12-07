@@ -18,6 +18,8 @@ Schema.createSchema = function(mongoose) {
 		, provider : {type : String, 'default' : ''}
 		, authToken : {type : String, 'default' : ''}
 		, facebook : {}
+		, kakao : {}
+
 
 	});
 	

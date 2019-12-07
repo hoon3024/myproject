@@ -149,20 +149,17 @@ module.exports = function(router, passport) {
 
    
 
-    // 페이스북 인증 라우팅 
-    router.route('/auth/facebook').get(passport.authenticate('facebook', { 
-        scope : 'email' 
+    // 카카오 인증 라우팅 
+    router.route('/auth/kakao').get(passport.authenticate('kakao', { 
+        scope : "account_email"
     }));
 
-    // 페이스북 인증 콜백 라우팅
-    router.route('/auth/facebook/callback').get(passport.authenticate('facebook', {
-        successRedirect : '/profile',
-        failureRedirect : '/'
+ 
+    router.route('/auth/kakao/callback').get(passport.authenticate('kakao', {
+        successRedirect : '/',
+        failureRedirect : '/'   
     }));
 
-    router.route('/auth/facebook').get(passport.authenticate('facebook', { 
-        scope : 'email' 
-    }));
 
    
    

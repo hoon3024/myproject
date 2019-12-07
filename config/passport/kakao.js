@@ -1,17 +1,19 @@
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+
+var kakaoStrategy = require('passport-kakao').Strategy;
 var config = require('../config');
 
 module.exports = function(app, passport) {
-	return new GoogleStrategy({
-    	clientID: config.google.clientID,
-    	clientSecret: config.google.clientSecret,
-    	callbackURL: config.google.callbackURL
+	return new kakaoStrategy({
+		clientID: config.kakao.clientID,
+		clientSecret: config.kakao.clientSecret,
+		callbackURL: config.kakao.callbackURL
 	}, function(accessToken, refreshToken, profile, done) {
-		console.log('passport의 facebook 호출됨.');
+		console.log('passport의 kakao 호출됨.');
 		console.dir(profile);
 		
 		var options = {
-		    criteria: { 'google.id': profile.id }
+		    criteria: { 'kakao.id': profile.id }
 		};
 		
 		var database = app.get('database');
@@ -21,9 +23,10 @@ module.exports = function(app, passport) {
 			if (!user) {
 				var user = new database.UserModel({
 					name: profile.displayName,
-			        email: profile.emails[0].value,
-			        provider: 'google',
-			        google: profile._json
+					email: profile.emails[0].value,
+					provider: 'kakao',
+					authToken: accessToken,
+					kakao: profile._json
 				});
         
 				user.save(function (err) {

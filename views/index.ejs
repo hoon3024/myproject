@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 		<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 		<link rel="stylesheet" type="text/css" href="/public/css/style.css">
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     	
 	</head>
 	<body>
@@ -61,7 +62,6 @@
 					<form class="col-sm6 center">
 						<% if(!logged) { %>
 						<a href="/login" class="button2"><i class="fa fa-user"></i> 로그인</a>
-						
 						<% } %>
 						<% if(logged) { %>
 						<a href="/logout" class="button2"><i class="fa fa-user"></i> 로그아웃</a>
@@ -77,7 +77,7 @@
 					<i class="fas fa-user-plus"></i><h7>회원가입</h7>
 				  </a> 
 				</div>
-			    
+			   
 				</form>
 			    <hr>
 			</div>
