@@ -25,6 +25,11 @@ module.exports = function(router, passport) {
             
         }
     });
+    router.route('/about').get(function(req, res) {
+        console.log('/about 패스 요청됨.');
+        res.render('about.ejs', {message: '930629 개발자 이창훈'});
+    });
+
     
     // 로그인 화면
     router.route('/login').get(function(req, res) {

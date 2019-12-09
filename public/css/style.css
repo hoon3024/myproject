@@ -76,7 +76,7 @@ label{
 }
 
 
-
+/*버튼*/
 .button {
 	color: rgba(30, 22, 54, 0.6);
 	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
@@ -126,3 +126,83 @@ label{
     transition:800ms ease all;
   }    
 
+/*about*/
+section {
+    width:100vw;
+    position:relative;
+  }
+  section:nth-child(odd) {
+    background-color:#f3f3f4;
+  }
+  .section-title {
+    margin:30px auto 50px auto;
+  }
+  .section-title h3{
+    font-size:1.8em;
+    text-align: center;
+  }
+  .wrapper {
+    padding-top:60px;
+    padding-bottom:40px;
+    background:transparent;
+    background-color:#495057;
+  }
+
+  .about-list{
+    padding:20px 50px;
+  }
+  .about-list h4{
+    font-size:1.3em;
+    margin-bottom:20px;
+  }
+  .about{
+    padding:30px;
+    box-sizing:border-box;
+    margin-bottom:20px;
+    background-color:#fff;
+    border:1px solid #aaa;  
+  }
+  @media screen and (min-width:764px) {
+    .about-list {
+      display:flex;
+      justify-content: space-between;
+    }
+    .about {
+      flex-basis:30%;
+    }
+  }
+  
+/*푸터*/
+.footer {
+    padding-top:30px;
+    padding-bottom:50px;
+    background-color:#495057;
+  }
+  .footer-info {
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .contact {
+    color:#fff;
+  }
+  .sns {
+    margin-top:50px;
+  }
+  .sns a {
+    margin-right:30px;
+  }
+  .sns a:last-child {
+    margin-right:0;
+  } 
+  @media screen and (min-width:764px) {
+    .footer-info {
+      max-width:1300px;
+      display:flex;
+    }
+    .contact {
+      flex:2;
+    }
+    .sns {
+      flex:1;
+    }
+  }

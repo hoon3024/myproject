@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		
+		<title>Login view</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+		<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+		<link rel="stylesheet" type="text/css" href="/public/css/style.css">
+		<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    	
+    </head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Changhoon.site</a>
+      
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <i class="navbar-toggler-icon"></i>
+        </button>
+      
+       
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              
+            
+          </ul>
+          
+        </div>
+      </nav> 
+
+  <section>
+    <div class="wrapper1">
+      <header class="section-title">
+        <h3>About</h3>
+      </header>  
+      <div class="about-list">
+        <div class="about">
+          <h4>백 엔드</h4>
+          <p>node.js의 express 모듈을 사용하여 구성.
+            로컬인증, 카카오인증을 위한 Passport사용.
+            동적 웹을 구현하기 위해 뷰 엔진 ejs 설정.
+            MongoDB를 이용해 사용자의 로그인 정보, 회원가입, 카카오API를 통한 위치검색시 위치검색하는 값을 저장.
+            오픈 API인 카카오 맵 API를 사용.
+            각 모듈 별로 폴더를 구성후 분리하여 app.js에서 호출
+            클라이언트의 요청에 따른 처리를 위한 라우터 구성</p>      
+        </div>
+        <div class="about">
+          <h4>프론트 엔드</h4>
+          <p>	
+            동적 웹사이트 구현을 위해 뷰 엔진 ejs을 사용
+            Bootstrap, fontawesome, google-font, css을 사용하여 웹 화면 구성
+            백엔드에서 클라이언트에게 요청받은 파라메터 값(로그인 유저의 정보,  검색한 키워드)을 출력</p>      
+        </div>
+        <div class="about">
+            <h4>그 외</h4>
+            <p>
+              사용한 기술 = 자바스크립트, html, css, 제이쿼리, node.js<br>  
+              사용된 데이터베이스 - MongoDB</p>      
+          </div>
+    </div>    
+  </section>
+
+
+</body>
+<section class="footer">
+    <div class="wrapper">
+      <div class="footer-info">
+        <div class="contact">
+          <p> 부산 부산진구 백양푸른채 /  이창훈  </p>
+          <p> Copyright ⓒ 2019 이창훈 All Rights Reserved.</p>
+          <p> 전화 : 01023710122 </p>
+          <p> 이메일 : hoon3024@abc.com</p>
+        </div>
+        <div class="sns">
+          <a href="#"><img src="/public/css/img/fb.png"></a>
+          <a href="#"><img src="/public/css/img/tw.png"></a>
+          <a href="#"><img src="/public/css/img/ytube.png"></a>
+          <a href="#"><img src="/public/css/img/gp.png"></a>
+        </div>
+      </div>
+    </div>    
+  </section>
+</html>
